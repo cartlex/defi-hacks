@@ -6,5 +6,5 @@ interface ICurve {
 
     function add_liquidity(uint256[2] calldata amounts, uint256 min_mint_amount) external payable returns (uint256);
 
-    function remove_liquidity(uint256 lp, uint[2] calldata min_amounts) external view returns (uint256[2] memory);
+    function remove_liquidity(uint256 lp, uint256[2] calldata min_amounts) external returns (uint256[2] memory);
 }
