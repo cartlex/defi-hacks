@@ -1,15 +1,22 @@
 //SPDX-License-Identifier: UNLICENDED
 pragma solidity 0.8.21;
 
+import {console2} from "forge-std/Test.sol";
 import {ICurve} from "./interfaces/ICurve.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import {Constants} from "./Constants.sol";
-import {console2} from "forge-std/Test.sol";
 
+ /**
+  * @title  Target Contract
+  * @author cartlex
+  * @notice This contract is for educational purposes only,
+  *         do not use it in production.
+  */
 contract Target is Constants {
     using SafeERC20 for IERC20;
+
     ICurve private constant POOL = ICurve(STETH_POOL);
     IERC20 private constant LP_TOKEN = IERC20(LP);
 

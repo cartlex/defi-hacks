@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: UNLICENDED
 pragma solidity 0.8.21;
 
-import {Test, console2, StdStyle} from "forge-std/Test.sol";
+import {console2, Test, StdStyle} from "forge-std/Test.sol";
 import {CurveHack} from "../../src/CurveHack/CurveHack.sol";
 import {Target} from "../../src/CurveHack/Target.sol";
 
