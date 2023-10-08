@@ -5,6 +5,12 @@ import {MockERC20} from "./MockERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
+/**
+ * @title  FirstDeposit Contract
+ * @author cartlex
+ * @notice This contract is for educational purposes only,
+ *         do not use it in production.
+ */
 contract FirstDeposit {
     using SafeERC20 for IERC20;
 
