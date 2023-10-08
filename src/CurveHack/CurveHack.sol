@@ -8,12 +8,12 @@ import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
 import {Constants} from "./Constants.sol";
 import {Target} from "./Target.sol";
 
- /**
-  * @title  CurveHack Contract
-  * @author cartlex
-  * @notice This contract is for educational purposes only,
-  *         do not use it in production.
-  */
+/**
+ * @title  CurveHack Contract
+ * @author cartlex
+ * @notice This contract is for educational purposes only,
+ *         do not use it in production.
+ */
 contract CurveHack is Constants {
     using SafeERC20 for IERC20;
 

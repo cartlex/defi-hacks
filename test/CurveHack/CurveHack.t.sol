@@ -19,7 +19,7 @@ contract CurveHackTest is Test {
         vm.deal(user, VALUE);
 
         vm.startPrank(user);
-        
+
         target = new Target();
         curveHack = new CurveHack(target);
 
