@@ -29,6 +29,10 @@ contract CurveHack is Constants {
         // get virtual price
         console2.log("during removing LP - virtual price", POOL.get_virtual_price());
         uint256 reward = target.getReward();
+
+        console2.log("=========================================================");
+        console2.log("reward with read-only reentrancy", reward);
+        console2.log("=========================================================");
     }
 
     function setup() external payable {
@@ -54,6 +58,10 @@ contract CurveHack is Constants {
         console2.log("after remove LP - virtual price", POOL.get_virtual_price());
 
         uint256 reward = target.getReward();
+        
+        console2.log("=========================================================");
         console2.log("reward without read-only reentrancy", reward);
+        console2.log("=========================================================");
+
     }
 }

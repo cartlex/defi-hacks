@@ -20,7 +20,7 @@ contract Target is Constants {
     ICurve private constant POOL = ICurve(STETH_POOL);
     IERC20 private constant LP_TOKEN = IERC20(LP);
 
-    mapping(address user => uint256 amount) balances;
+    mapping(address user => uint256 amount) public balances;
 
     function stake(uint256 amount) external {
         IERC20(LP_TOKEN).safeTransferFrom(msg.sender, address(this), amount);

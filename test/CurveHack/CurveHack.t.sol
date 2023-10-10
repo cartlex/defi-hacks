@@ -4,11 +4,14 @@ pragma solidity 0.8.21;
 import {console2, Test, StdStyle} from "forge-std/Test.sol";
 import {CurveHack} from "../../src/CurveHack/CurveHack.sol";
 import {Target} from "../../src/CurveHack/Target.sol";
+import {Constants} from "../../src/CurveHack/Constants.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract CurveHackTest is Test {
+contract CurveHackTest is Test, Constants {
     uint256 private constant VALUE = 10_000e18;
     uint256 private constant DEPOSIT_AMOUNT = 2_000e18;
     uint256 private constant SETUP_AMOUNT = 25e18;
+    IERC20 private constant LP_TOKEN = IERC20(LP);
     address user = vm.addr(111);
 
     CurveHack public curveHack;
@@ -27,11 +30,11 @@ contract CurveHackTest is Test {
     }
 
     function test_pwn() public {
-        emit log_named_decimal_uint("user balance", address(user).balance, 18);
-        // console2.log();
         vm.startPrank(user);
+
         curveHack.setup{value: SETUP_AMOUNT}();
         curveHack.pwn{value: DEPOSIT_AMOUNT}();
+        
         vm.stopPrank();
     }
 }
