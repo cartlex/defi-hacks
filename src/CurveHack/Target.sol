@@ -34,5 +34,6 @@ contract Target is Constants {
 
     function getReward() external view returns (uint256) {
         uint256 reward = balances[msg.sender] * POOL.get_virtual_price() / 1e18;
+        return reward;
     }
 }

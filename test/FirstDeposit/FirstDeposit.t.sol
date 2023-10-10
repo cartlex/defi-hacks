@@ -27,7 +27,6 @@ contract FirstDepositTest is Test {
 
         mockERC20.mint(user1, USER1_INITIAL_TOKEN_AMOUNT);
         mockERC20.mint(user2, USER2_INITIAL_TOKEN_AMOUNT);
-        // mockERC20.mint(address(vault), VAULT_MINT_AMOUNT);
     }
 
     function test_FirstDeposit() public {
